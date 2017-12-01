@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tencent.tmgp.sgame"
+    platformBuildVersionCode="23"
+    platformBuildVersionName="6.0-2166767"
+    android:installLocation="auto"
+    android:theme="@*android:style/Theme.NoTitleBar"
+    android:versionCode="31041306"
+    android:versionName="1.31.4.13">
+
+    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="19" />
+    <permission android:name="com.subao.permission.USE_SDK.com.tencent.tmgp.sgame.KingsGlory" />
+
+    <uses-permission
+        android:name="com.subao.permission.USE_SDK.com.tencent.tmgp.sgame.KingsGlory" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_SINTERNETWIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <supports-screens android:anyDensity="true" android:largeScreens="true"
+        android:normalScreens="true" />
+    <application android:name="com.tencent.tpshell.TPShellApplication" android:allowBackup="false"
+        android:debuggable="false" android:icon="@drawable/app_icon"
+        android:label="@string/app_name" android:theme="@style/AppTheme">
+        <meta-data android:name="TencentMapSDK"
+            android:value="V2GBZ-E6K3X-EI34P-7KHUP-ZLJPZ-EVBBE" />
+
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
+
+        <meta-data android:name="com.tencent.rdm.uuid"
+            android:value="2096e2ac-b50e-4a8c-b01a-59c22386e5c1" />
+
+        <activity android:name="com.ryg.dynamicload.DLProxyActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="com.ryg.dynamicload.proxy.activity.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.tencent.msdk.NameAuthActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="sensor"
+            android:theme="@*android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity android:name="com.tencent.tmgp.sgame.wxapi.WXEntryActivity"
+            android:excludeFromRecents="true" android:exported="true"
+            android:label="WXEntryActivity" android:launchMode="singleTop"
+            android:taskAffinity="com.tencent.tmgp.sgame.diff">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="wx95a3a4d7c627e07d" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.tencent.msdk.weixin.qrcode.WXQrCodeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:excludeFromRecents="true" android:exported="true"
+            android:label="WXQrCodeActivity" android:launchMode="singleTop"
+            android:screenOrientation="portrait" android:taskAffinity="com.tencent.tmgp.sgame.diff"
+            android:theme="@*android:style/Theme.Light.NoTitleBar" />
+
+        <activity android:name="com.tencent.tauth.AuthActivity" android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent1104466820" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@*android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity android:name="com.tencent.msdk.notice.AlertMsgActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="sensor" android:theme="@style/NoticeAlertTheme" />
+
+        <service android:name="com.tencent.msdk.notice.RollFloatService" />
+
+        <activity android:name="com.tencent.msdk.webview.JumpShareActivity"
+            android:theme="@*android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity android:name="com.tencent.msdk.webview.WebViewActivity"
+            android:configChanges="locale|keyboardHidden|navigation|orientation|screenSize|fontScale"
+            android:hardwareAccelerated="true" android:process=":msdk_inner_webview"
+            android:screenOrientation="landscape"
+            android:theme="@*android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustPan|adjustNothing">
+            <meta-data android:name="titlebar_hideable" android:value="false" />
+            <meta-data android:name="toolbar_portrait_hideable" android:value="false" />
+            <meta-data android:name="toolbar_landscape_hideable" android:value="false" />
+        </activity>
+
+        <service
+            android:name="com.tencent.tmassistantsdk.downloadservice.TMAssistantDownloadSDKService"
+            android:exported="false" android:process=":TMAssistantDownloadSDKService" />
+
+        <service android:name="com.tencent.tmdownloader.TMAssistantDownloadService"
+            android:exported="false" android:process=":TMAssistantDownloadSDKService" />
+
+        <receiver android:name="com.tencent.qqgamemi.QmiPluginTreeReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tencent.component.plugin.receiver" />
+                <action android:name="com.tencent.component.plugin.alarm" />
+                <action android:name="com.tencent.component.plugin.notification" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.tencent.msdk.dns.HttpDnsCache$ConnectivityChangeReceiver"
+            android:label="NetworkConnection">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.tencent.android.tpush.XGPushActivity" android:exported="false"
+            android:theme="@*android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="com.tencent.android.tpush.XGPushReceiver"
+            android:process=":xg_service_v2">
+            <intent-filter android:priority="7fffffff">
+                <action android:name="com.tencent.android.tpush.action.SDK" />
+                <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.tencent.android.tpush.service.XGPushService"
+            android:exported="true" android:persistent="true" android:process=":xg_service_v2" />
+
+        <activity android:name="com.tencent.component.plugin.PluginShellActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@*android:style/Theme.Translucent"
+            android:windowSoftInputMode="adjustPan|adjustNothing" />
+
+        <activity android:name="com.tencent.pandora.imagepicker.UnityProxyActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:label="@string/app_name" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="androidnativeactions.UnityProxyActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.tencent.component.plugin.server.PluginService"
+            android:exported="false" />
+
+        <service android:name="com.tencent.qqgamemi.QMiService" android:exported="false" />
+
+        <service android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.tencent.tmgp.sgame.PUSH_ACTION" />
+            </intent-filter>
+        </service>
+
+        <meta-data android:name="XG_V2_ACCESS_ID" android:value="2100117751" />
+
+        <meta-data android:name="XG_V2_ACCESS_KEY" android:value="AD3PI8D71U1P" />
+
+        <activity android:name="com.tencent.midas.proxyactivity.APMidasPayProxyActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:process=":midasPay" android:screenOrientation="landscape"
+            android:theme="@*android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity android:name="com.tencent.midas.wx.APMidasWXPayActivity" android:exported="true"
+            android:process=":midasPay"
+            android:theme="@*android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity android:name="com.tencent.midas.qq.APMidasQQWalletActivity"
+            android:configChanges="keyboardHidden|orientation" android:exported="true"
+            android:launchMode="singleTop" android:process=":midasPay"
+            android:theme="@*android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="qwallet100703379" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.tencent.midas.jsbridge.APWebJSBridgeActivity"
+            android:theme="@*android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateUnchanged|stateHidden|stateAlwaysHidden|stateAlwaysVisible" />
+
+        <activity android:name="oicq.wlogin_sdk.quicklogin.QuickLoginWebViewActivity" />
+
+        <activity android:name="com.tencent.ui.CheckPermissionDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape" android:theme="@*android:style/Theme.Dialog"
+            android:windowSoftInputMode="adjustPan|adjustNothing" />
+
+        <activity android:name="com.tencent.tmgp.sgame.SGameActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:label="@string/app_name" android:launchMode="singleTask"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="smoba" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="smoba1104466820" />
+            </intent-filter>
+            <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik"
+                android:value="true" />
+        </activity>
+
+        <activity android:name="com.tencent.apollo.qr.zxing.CaptureActivity"
+            android:label="@string/apolloqr_scan_label"
+            android:screenOrientation="sensorLandscape" />
+
+        <meta-data android:name="GCloud.TDM.AppId" android:value="@string/tdm_AppId" />
+        <meta-data android:name="GCloud.TDM.AppChannel" android:value="@string/tdm_AppChannel" />
+        <meta-data android:name="GCloud.TDM.Protocol" android:value="@string/tdm_Protocol" />
+        <meta-data android:name="IsNoBundle" android:value="0" />
+        <meta-data android:name="IsNoBundle" android:value="1" />
+    </application>
+    <uses-feature android:glEsVersion="20000" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct"
+        android:required="false" />
+</manifest>

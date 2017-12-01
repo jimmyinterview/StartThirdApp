@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_main).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityStartUtil.startThirdApp(MainActivity.this, "com.malin.third.app");
+                ActivityStartUtil.startThirdApp(MainActivity.this, "com.tencent.tmgp.sgame");
 
             }
         });
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_main2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityStartUtil.startThirdApp2(MainActivity.this, "com.malin.third.app");
+                ActivityStartUtil.startThirdApp2(MainActivity.this, "com.tencent.tmgp.sgame");
             }
         });
     }

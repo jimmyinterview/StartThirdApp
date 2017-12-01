@@ -99,7 +99,7 @@ public class ActivityStartUtil {
         PackageInfo packageInfo = null;
         try {
             packageInfo = packageManager.getPackageInfo(packageName, 0);
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
         return packageInfo != null;
