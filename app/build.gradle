@@ -6,11 +6,12 @@ android {
     defaultConfig {
         resConfigs "zh"
         applicationId "com.malin.test"
-        minSdkVersion 23
+        minSdkVersion 18
         targetSdkVersion 18
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false

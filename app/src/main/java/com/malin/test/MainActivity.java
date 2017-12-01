@@ -1,9 +1,11 @@
 package com.malin.test;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -21,6 +23,11 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity {
 
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private HomeWatcher mHomeWatcher;
+    private Handler mHandler = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,44 +44,58 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_main2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityStartUtil.startThirdApp2(MainActivity.this, "com.tencent.tmgp.sgame");
+                startActivity(new Intent(MainActivity.this, ActivityDialog.class));
+                finish();
+                //ActivityStartUtil.startThirdApp2(MainActivity.this, "com.tencent.tmgp.sgame");
             }
         });
 
         registerHomeClickedBroadCast();
     }
 
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Toast.makeText(MainActivity.this, "返回键无效", Toast.LENGTH_SHORT).show();
-            return true;//return true;拦截事件传递,从而屏蔽back键。
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-
-    private HomeClickBroadcastReceiver homeClickBroadcastReceiver;
-
-    /**
-     * 这种方式能对home键与多任务键实现全盘监听，但你无法去屏蔽系统的行为。
-     */
     private void registerHomeClickedBroadCast() {
-        //创建广播
-        homeClickBroadcastReceiver = new HomeClickBroadcastReceiver();
-        //动态注册广播
-        //当按下Home键时，系统会发出action为Intent.ACTION_CLOSE_SYSTEM_DIALOGS的BroadcastReceiver
-        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
-        //启动广播
-        registerReceiver(homeClickBroadcastReceiver, intentFilter);
+        mHomeWatcher = new HomeWatcher(this);
+        mHomeWatcher.setOnHomePressedListener(new HomeWatcher.OnHomePressedListener() {
+            @Override
+            public void onHomePressed() {
+                //短按Home键
+                //Toast.makeText(getApplicationContext(), "短按Home键 应用是否在前台:" + MyLifecycleHandler.isApplicationInForeground(), Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "短按Home键 应用是否在前台:" + MyLifecycleHandler.isApplicationInForeground());
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(new Intent(MainActivity.this, ActivityDialog.class));
+                        //TODO:启动dialog样式的Activity,
+                        Toast.makeText(getApplicationContext(), "应用是否在前台:" + MyLifecycleHandler.isApplicationInForeground(), Toast.LENGTH_LONG).show();
+                        Log.d(TAG, "应用是否在前台:" + MyLifecycleHandler.isApplicationInForeground());
+                    }
+                }, 1000);
+            }
+
+            @Override
+            public void onRecentAppsPressed() {
+
+            }
+        });
+        mHomeWatcher.startWatch();
     }
+
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            Toast.makeText(MainActivity.this, "返回键无效", Toast.LENGTH_SHORT).show();
+//            return true;//return true;拦截事件传递,从而屏蔽back键。
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (homeClickBroadcastReceiver != null) {
-            unregisterReceiver(homeClickBroadcastReceiver);
+        if (mHomeWatcher != null) {
+            mHomeWatcher.stopWatch();
         }
     }
 }
